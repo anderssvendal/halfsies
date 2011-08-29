@@ -21,7 +21,8 @@ def resize_file(file)
   end
 end
 
-FSSM.monitor('.', '**/*@2x*') do
+puts "Watching #{Dir.pwd}"
+FSSM.monitor(Dir.pwd, '**/*@2x*') do
   update do |base, relative| 
     file = File.join(base, relative)
     puts "UPDATED: #{file}"
